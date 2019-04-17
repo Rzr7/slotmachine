@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Slot Machine</title>
+  <meta name="description" content="Slot Machine">
+  <meta name="author" content="Nikita Popov">
+  <link rel="stylesheet" href="assets/css/styles.css?v=1.0">
+</head>
+
+<body>
+  <div id="slot">
+    <div id="machine">
+      <div id="reels">
+        <div id="win_lines">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <div id="lines">
+          <div class="line" data-line="top"></div>
+          <div class="line" data-line="middle"></div>
+          <div class="line" data-line="bottom"></div>
+        </div>
+        <div class="reel"></div>
+        <div class="reel"></div>
+        <div class="reel"></div>
+      </div>
+      <div id="reel-controls">
+        <label for="debug">Fixed mode</label>
+        <input type="checkbox" id="debug" />
+        <div class="debug-controls">
+            <div>
+                <select data-reel-symbol="0">
+                  <option value="3xBAR">3xBAR</option>
+                  <option value="BAR">BAR</option>
+                  <option value="2xBAR">2xBAR</option>
+                  <option value="7">7</option>
+                  <option value="Cherry">Cherry</option>
+                </select>
+                <select data-reel-position="0">
+                  <option value="top">top</option>
+                  <option value="middle">middle</option>
+                  <option value="bottom">bottom</option>
+                </select>
+            </div>
+            <div>
+                <select data-reel-symbol="1">
+                  <option value="3xBAR">3xBAR</option>
+                  <option value="BAR">BAR</option>
+                  <option value="2xBAR">2xBAR</option>
+                  <option value="7">7</option>
+                  <option value="Cherry">Cherry</option>
+                </select>
+                <select data-reel-position="1">
+                  <option value="top">top</option>
+                  <option value="middle">middle</option>
+                  <option value="bottom">bottom</option>
+                </select>
+            </div>
+            <div>
+                <select data-reel-symbol="2">
+                  <option value="3xBAR">3xBAR</option>
+                  <option value="BAR">BAR</option>
+                  <option value="2xBAR">2xBAR</option>
+                  <option value="7">7</option>
+                  <option value="Cherry">Cherry</option>
+                </select>
+                <select data-reel-position="2">
+                  <option value="top">top</option>
+                  <option value="middle">middle</option>
+                  <option value="bottom">bottom</option>
+                </select>
+            </div>
+        </div>
+      </div>
+      <div id="controls">
+        <label for="balance">Balance</label>
+        <input type="text" id="balance" class="balance-box" />
+        <button type="button" id="spin">SPIN</button>
+      </div>
+    </div>
+
+    <div class="win-table">
+      <div class="title">Pay table</div>
+      <table class="table-fill">
+        <thead>
+          <tr>
+            <th class="text-center">Combination</th>
+            <th>1st Line</th>
+            <th>2nd Line</th>
+            <th>3rd Line</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-combination="Cherry">
+            <td class="symbols-holder text-center">
+              <img src="assets/img/Cherry.png">
+              <img src="assets/img/Cherry.png">
+              <img src="assets/img/Cherry.png">
+            </td>
+            <td>2000</td>
+            <td>1000</td>
+            <td>4000</td>
+          </tr>
+          <tr data-combination="7">
+            <td class="symbols-holder text-center">
+              <img src="assets/img/7.png">
+              <img src="assets/img/7.png">
+              <img src="assets/img/7.png">
+            </td>
+            <td>150</td>
+            <td>150</td>
+            <td>150</td>
+          </tr>
+          <tr data-combination="7Cherry">
+            <td class="symbols-holder text-center">
+              <img src="assets/img/any.png">
+              <img src="assets/img/7.png">
+              <img src="assets/img/Cherry.png">
+            </td>
+            <td>75</td>
+            <td>75</td>
+            <td>75</td>
+          </tr>
+          <tr data-combination="3xBAR">
+            <td class="symbols-holder text-center">
+              <img src="assets/img/3xBAR.png">
+              <img src="assets/img/3xBAR.png">
+              <img src="assets/img/3xBAR.png">
+            </td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+          </tr>
+          <tr data-combination="2xBAR">
+            <td class="symbols-holder text-center">
+              <img src="assets/img/2xBAR.png">
+              <img src="assets/img/2xBAR.png">
+              <img src="assets/img/2xBAR.png">
+            </td>
+            <td>20</td>
+            <td>20</td>
+            <td>20</td>
+          </tr>
+          <tr data-combination="BAR">
+            <td class="symbols-holder text-center">
+              <img src="assets/img/BAR.png">
+              <img src="assets/img/BAR.png">
+              <img src="assets/img/BAR.png">
+            </td>
+            <td>10</td>
+            <td>10</td>
+            <td>10</td>
+          </tr>
+          <tr data-combination="anyBAR">
+            <td class="symbols-holder text-center">
+              <img src="assets/img/any.png">
+              <img src="assets/img/any.png">
+              <img src="assets/img/BAR.png">
+            </td>
+            <td>5</td>
+            <td>5</td>
+            <td>5</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+  <script src="assets/js/Reel.js"></script>
+  <script src="assets/js/Symbol.js"></script>
+  <script src="assets/js/scripts.js"></script>
+  <script>
+    var slotMachine = new SlotMachine($('#slot'));
+  </script>
+</body>
+
+</html>

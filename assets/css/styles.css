@@ -1,0 +1,256 @@
+@import "https://fonts.googleapis.com/css?family=Montserrat:300,400,700";
+
+body {
+    font-family: Montserrat, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#slot {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#machine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-right: 50px;
+}
+
+#reel-controls {
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.debug-controls {
+    width: 100%;
+    display: none;
+    justify-content: space-evenly;
+    margin-top: 15px;
+}
+
+#controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#reels {
+    display: flex;
+    height: 270px;
+    position: relative;
+}
+
+#lines,
+#win_lines {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#lines .line,
+#win_lines  .line {
+    height: 5px;
+    width: 100%;
+    background: red;
+    opacity: 0;
+    z-index: 5;
+}
+
+#win_lines .line {
+    opacity: 1;
+    background: #cccccc;
+    z-index: 0;
+}
+
+#win_lines .line::before {
+    position: absolute;
+    top: -12px;
+    left: -100px;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+#win_lines .line:nth-child(1)::before {
+    content: "1st Line";
+}
+#win_lines .line:nth-child(2)::before {
+    content: "2nd Line";
+}
+#win_lines .line:nth-child(3)::before {
+    content: "3rd Line";
+}
+
+#lines .line:nth-child(1),
+#win_lines .line:nth-child(1) {
+    position: relative;
+    top: calc(270px / 2 / 2);
+}
+
+#lines .line:nth-child(2),
+#win_lines .line:nth-child(2) {
+    position: relative;
+    top: calc(270px / 2);
+}
+
+#lines .line:nth-child(3),
+#win_lines .line:nth-child(3) {
+    position: relative;
+    top: calc(270px - (270px / 2 / 2));
+}
+
+.reel {
+    border: 5px solid #000;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 160px;
+    position: relative;
+}
+
+.reel img {
+    display: block;
+    height: 120px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+.symbol {
+    position: absolute;
+    width: 100%;
+}
+
+#controls {
+    margin-top: 40px;
+}
+
+#spin {
+    width: 150px;
+    height: 50px;
+    font-size: 21px;
+    margin-top: 15px;
+}
+
+.symbols-holder img {
+    height: 55px;
+}
+
+.win-table {
+    margin-top: 30px;
+}
+
+.win-table .title {
+    font-size: 32px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.table-fill {
+    background-color: white;
+    border-radius:3px;
+    border-collapse: collapse;
+    margin: auto;
+    padding:5px;
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    animation: float 5s infinite;
+  }
+   
+  th {
+    color:#D5DDE5;;
+    background:#1b1e24;
+    border-bottom:4px solid #9ea7af;
+    border-right: 1px solid #343a45;
+    font-size:23px;
+    font-weight: 100;
+    padding: 10px 15px;
+    text-align:left;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    vertical-align:middle;
+  }
+  
+  th:first-child {
+    border-top-left-radius:3px;
+  }
+   
+  th:last-child {
+    border-top-right-radius:3px;
+    border-right:none;
+  }
+    
+  tr {
+    border-top: 1px solid #C1C3D1;
+    border-bottom: 1px solid #C1C3D1;
+    color:#666B85;
+    font-size:16px;
+    font-weight:normal;
+    background:#FFFFFF;
+    text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+  }
+   
+  tr:first-child {
+    border-top:none;
+  }
+  
+  tr:last-child {
+    border-bottom:none;
+  }
+  
+  tr:last-child td:first-child {
+    border-bottom-left-radius:3px;
+  }
+   
+  tr:last-child td:last-child {
+    border-bottom-right-radius:3px;
+  }
+   
+  td {
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align:left;
+    vertical-align:middle;
+    font-weight:300;
+    font-size:18px;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #C1C3D1;
+  }
+  
+  td:last-child {
+    border-right: 0px;
+  }
+  
+  th.text-left {
+    text-align: left;
+  }
+  
+  th.text-center {
+    text-align: center;
+  }
+  
+  th.text-right {
+    text-align: right;
+  }
+  
+  td.text-left {
+    text-align: left;
+  }
+  
+  td.text-center {
+    text-align: center;
+  }
+  
+  td.text-right {
+    text-align: right;
+  }
+  
